@@ -23,6 +23,9 @@ const shopKeeperSchema =  new mongoose.Schema({
     OtpVerify: {
         type: Boolean,
         default: true
+    },
+    image:{
+        type: String
     }
 }, {timestamps: true});
 

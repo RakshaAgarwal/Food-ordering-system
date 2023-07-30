@@ -1,6 +1,8 @@
-import "./login.css";
+import "./login.scss";
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 function Login(props) {
+  const navigate = useNavigate();
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -13,6 +15,7 @@ function Login(props) {
         'Content-Type': 'application/json'
       }
     });
+    if(result.status === 201)navigate('/login')
     console.log(await result.json())
   }
   else{
@@ -23,25 +26,23 @@ function Login(props) {
         'Content-Type': 'application/json'
       }
     });
+    if(result.status === 201)navigate('/shops')
     console.log(await result.json())
   }
   }
   return (
-    <div className="d-flex vh-100 bg-info">
+    <div className="d-flex vh-100 login-page">
       <div className="login-box m-auto p-5">
-        <h2 className="text-center mb-4">{props.heading}</h2>
+        <h2 className="text-center my-5 login-heading">{props.heading}</h2>
         <form>
           { props.action === "signup" &&
              <div className="input-group mb-5">
-             <span className="input-group-addon">
-               <i className="glyphicon glyphicon-user"></i>
-             </span>
              <input
                id="name"
                type="text"
                className="form-control"
                name="name"
-               placeholder="Name"
+               placeholder="Username"
                value={name}
                onChange={(e)=>setName(e.target.value)}
              />
@@ -49,9 +50,7 @@ function Login(props) {
           }
          
           <div className="input-group mb-5">
-            <span className="input-group-addon">
-              <i className="glyphicon glyphicon-user"></i>
-            </span>
+           
             <input
               id="email"
               type="text"
@@ -63,9 +62,7 @@ function Login(props) {
             />
           </div>
           <div className="input-group">
-            <span className="input-group-addon">
-              <i className="glyphicon glyphicon-lock"></i>
-            </span>
+            
             <input
               id="password"
               type="password"
@@ -78,17 +75,23 @@ function Login(props) {
           </div>
         </form>
         <div className="d-flex mt-5 justify-content-between">
-        <button type="button" className="btn btn-info" onClick={onSubmitClick}>Submit</button>
-        {/* <button type="button" className="btn btn-info" onClick={onSignUpClick}>Sign Up</button>
-        <button type="button" className="btn btn-info">Login</button> */}
+        <button type="button" className="btn btn-primary btn-lg" onClick={onSubmitClick}>Submit</button>
+        { props.action === "signup" &&
+           <div className="d-flex align-items-center">
+             <span className="login-text">Already have an account?</span>
+             <button type="button" className="btn btn-link" onClick={()=>navigate('/login')}>Login</button>
+             </div>
+          }
+          { props.action === "login" &&
+           <div className="d-flex align-items-center">
+             <span className="login-text ">Don't have an account?</span>
+             <button type="button" className="btn btn-link" onClick={()=>navigate('/signup')}>Register here</button>
+             </div>
+          }
         </div>
 
       </div>
     </div>
-    // <>
-    //   <h1>Who lives in my Garage?</h1>
-    //   <button type="button" className="btn btn-primary">Base className</button>
-    // </>
   );
 }
 

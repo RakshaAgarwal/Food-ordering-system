@@ -1,0 +1,38 @@
+.login-box {
+  height: 45rem;
+  width: 40rem;
+  background-color: #1e1e1e;
+  border-radius: 0.2rem;
+}
+.login-heading {
+  color: white;
+  font-size: 3rem;
+}
+.login-text {
+  color: white;
+}
+.home-page {
+  background-image: url("./assets/images/app-bg.avif");
+  background-size: cover;
+  height: 100vh;
+  &__heading {
+    left: 57%;
+    top: 30%;
+    text-align: center;
+  }
+  &__text {
+    color: #c0c0c2;
+    font-size: 13rem;
+    font-weight: 700;
+    line-height: 15rem;
+  }
+  &__button {
+    font-size: 3rem;
+    margin-top: 1.5rem;
+    border-radius: 2rem;
+  }
+}
+.login-page {
+  background-image: url("./assets/images/login-bg.avif");
+  background-size: cover;
+}

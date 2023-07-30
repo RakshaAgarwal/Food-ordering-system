@@ -3,11 +3,13 @@ const mongoose = require('mongoose');
 const menuSubSchema = new mongoose.Schema({
     ItemName: String,
     ItemPrice: Number,
-    Image: String
+    Image: String,
+    description: String,
+    rating: Number
   });
 
 const menuSchema =  new mongoose.Schema({
-    _id: Object,
+    // _id: Object,
     menu: [menuSubSchema],
     shopkeeper_id: {
         type: String,

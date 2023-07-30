@@ -2,7 +2,6 @@ const indexSchema  = require('../model/index')
 
 module.exports = function(router){
     router.post('/shopkeeper/signup', async (req, res) => {
-     console.log(req.body, '------------',indexSchema);
     await indexSchema.shopKeeperSchema.create({
         ...req.body
      })
