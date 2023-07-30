@@ -2,6 +2,23 @@
   .card-img,
   .card-img-top,
   .card-img-bottom {
-    width: 1.5%;
+    width: 20%;
   }
+}
+.cart {
+  background-color: #313131;
+  background-size: cover;
+  height: 100vh;
+}
+.cart-center {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.empty-cart {
+  background-color: white;
+  width: fit-content;
+  border-radius: 2rem;
+  //   height: 40rem;
 }

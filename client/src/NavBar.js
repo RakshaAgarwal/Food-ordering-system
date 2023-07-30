@@ -1,7 +1,9 @@
 import './navbar.scss';
 import {useSelector} from "react-redux"
+import { useNavigate } from "react-router-dom";
 function NavBar(){
     const cartItems = useSelector((state)=>state.addToCart)
+    const navigate = useNavigate();
     return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
   <div className="container-fluid">
@@ -36,6 +38,7 @@ function NavBar(){
         <input className="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
         <button className="btn btn-outline-success" type="submit">Search</button>
       </form>
+      <div onClick = {()=>navigate('/cart')}>
       <img
         src={require(`./assets/images/cart.png`)}
         className="card-img-top"
@@ -45,6 +48,7 @@ function NavBar(){
       />
       {cartItems.length}
        Item Added
+       </div>
     </div>
   </div>
 </nav>

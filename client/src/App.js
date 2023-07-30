@@ -3,6 +3,7 @@ import Login from './Login';
 import Home from './Home';
 import ShopList from './ShopList'
 import ShopMenu from './ShopMenu'
+import Cart from './Cart'
 import {  Routes, Route, useNavigate } from "react-router-dom"
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path="/login" element={<Login heading="Login" action="login" />} />
           <Route path="/shops" element={<ShopList onShopClick={event => onShopClick(event)} />} />
           <Route path="/shop/menu" element={<ShopMenu shop={shop} />} />
+          <Route path="/cart" element={<Cart />} />
         </Routes>
 
       </header>
